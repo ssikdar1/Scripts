@@ -9,10 +9,12 @@ import os, os.path
 import re
 from subprocess import call
 
-directory = "C:\Users\Shan\Downloads\PA"
-destination = "C:\Users\Shan\Downloads\PA\kml\\"
+directory = "C:\Users\Shan\Downloads\NY\wgs\Orange"
+destination = directory + '\kml\\'
+# destination = "C:\Users\Shan\Downloads\PA\kml\\"
 
 if not os.path.exists(destination):
+	print destination
 	os.makedirs(destination)
 	print '\kml created.'
 else:
@@ -26,8 +28,8 @@ for root, _, files in os.walk(directory):
 		if(file[len(file)-3:len(file)] == "shp"):
 			#ogr2ogr -f "KML" output_name.kml input_name.shp
 			input =  fullpath
+			# tokens = file.split('_')
+			# file =  tokens[len(tokens)-1]
 			output =  destination + file[:len(file)-4] + '.kml'
 			os.system('ogr2ogr -f "KML" ' + output + ' ' + input)
-			# print path
-			# print file
-			# print(path[len(path)-1])
+			# print 'ogr2ogr -f "KML" ' + output + ' ' + input
