@@ -1,0 +1,5 @@
+# Query denver census file
+ogrinfo -dialect SQLite -sql "SELECT ST_HexagonalGrid(geometry,1)  from census_neighborhood_demographics_2010" census_neighborhood_demographics_2010.shp man ogrinfo
+
+# Tries to get the polygons out of this hexfile and save it to geojson
+ogr2ogr -f "GeoJSON" denver_hex.geojson -dialect SQLite  -sql "SELECT HexagonalGrid(geometry,1)  from census_neighborhood_demographics_2010" census_neighborhood_demographics_2010.shp
