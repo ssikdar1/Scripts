@@ -1,0 +1,5 @@
+# My crazy attempts to do the problems of http://rosalind.info/problems/dna/ purely in command line/ bash
+
+# Problem1 
+$ echo AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC | sed 's/\(.\)/\1,/g' | tr ',' '\n' | sort | uniq -c | tail -n 4 | awk 'BEGIN {ORS=" "} {print $1}' | awk '{print}'
+20 12 17 21 
