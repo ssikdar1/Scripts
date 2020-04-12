@@ -10,3 +10,9 @@ $ echo AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC | 
 # RNA string u is formed by replacing all occurrences of 'T' in t with 'U' in u
 $ echo GATGGAACTTGACTACGTAAATT | sed 's/T/U/g'
 GAUGGAACUUGACUACGUAAAUU
+
+# Problem 3
+# The reverse complement sc of s
+# Takeaway: `rev` can reverse a string which is neat
+$ echo AAAACCCGGT  | rev | python -c  "import sys; d = {'A': 'T', 'T':'A', 'G':'C', 'C':'G'}; print(''.join([ d[x] for x in sys.stdin.read().strip()]))"
+ACCGGGTTTT
